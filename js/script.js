@@ -136,9 +136,18 @@ const select = document.querySelector('#type');
 const types = getType(coloredIcons);
 genOption(types, select);
 
-
-
-// B. filter on Change
+// B. filter on Change (capire come fare una selezione)
+//                    (che iterazione ho qui?)
+select.addEventListener('change' , () => {
+    //console.log('CHANGE');
+    // in lettura
+    //console.log( select.value );
+    
+    const selected = select.value;
+    
+    const filteredIcons = filterIcons(coloredIcons, selected);
+    printIcons(filteredIcons, container);
+});
 
 
 
@@ -227,4 +236,21 @@ function genOption(types, select) {
     });
     // ! non sovrascrivere all presente nel html per quello +=
     select.innerHTML += options;
+}
+
+/**
+ * Filter icon select
+ */
+function filterIcons(icons, selected) {
+    
+    if(selected === 'all') {
+        return icons;
+    }
+
+    const filtered = icons.filter((icon) => {
+
+        return icon.type === selected;
+    });
+
+    return filtered;
 }
