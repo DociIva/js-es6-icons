@@ -112,6 +112,7 @@ const colors = [
 // querySelector e per il 1 elemento che incontra
 const container = document.querySelector('.icons');
 console.log(container);
+
 // 1. situazione printare le icone a schermo
 // facciamo una funzione | abbiamo così (le icone stesse, e dove metterle)
 // icone in biano nero
@@ -124,6 +125,20 @@ console.log(coloredIcons);
 // bisogna richiamare per l'agg dei color (quelle colorate ,! no bc)
 printIcons(coloredIcons, container)
 
+
+// 3. Filter icons
+// A. Gen select options(bisogna app dentro il select del html)
+const select = document.querySelector('#type');
+
+// voglia mettere tutti i type dentro la nostr app, 1 salvi i dati qua e poi fun che nutre la select
+//             getType serve un set da pass cosa vuoi pass qua?( coloredIcons generate su)
+
+const types = getType(coloredIcons);
+genOption(types, select);
+
+
+
+// B. filter on Change
 
 
 
@@ -140,7 +155,7 @@ function printIcons(icons, container) {
     //Generare il markup per le icone| let perchè si deve sovrascrivere ogni volta
     let  html = '';
     icons.forEach( (icon) => {
-       // destru
+       // destrutturazione
        const {family, prefix, name, color} = icon;
 
        html +=
@@ -153,11 +168,11 @@ function printIcons(icons, container) {
     });
     console.log(html);
     
-    // mettere il contenuto
+    // mettere il contenuto all interno del container icons
     container.innerHTML = html;
 
 }
-/** 2
+/**2
  * Return color icon collection con i type
  */
 // quanti type ci sono univoci capirlo in modo dinamico| DOPO ag colors
@@ -193,6 +208,7 @@ function getType(icons) {
     //partono da un arr
     const types = [];
     icons.forEach( (icon) => {
+      
         if(! types.includes(icon.type)) {
             types.push(icon.type)
         }
@@ -200,6 +216,15 @@ function getType(icons) {
    return types;
 }
 
-
-
-
+/**
+ * Gen option for filter
+ */
+function genOption(types, select) {
+    //generazione delle nostre opz
+    let options = '';
+    types.forEach((type) => {    // des
+        options += ` <option value="${type}">${type}</option>`
+    });
+    // ! non sovrascrivere all presente nel html per quello +=
+    select.innerHTML += options;
+}
