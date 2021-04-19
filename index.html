@@ -5,27 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icons</title>
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Rubik&display=swap" rel="stylesheet">
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <!--Style-->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <!--HEADER-->
-    <header class="header">
-
-    </header>
-    <!--MAIN-->
-    <main>
-        <div class="app">
-
+    <div class="app">
+        <!--HEADER-->
+      <header class="header p-20">
+           <h1>Font <span>Icons</span></h1>
+      </header>
+      
+      <div class="search p-20">
+          <label for="type">Filter by type</label>
+          <div class="wrap-select">
+              <select name="type" id="type">
+                 <option value="all">All</option>
+              </select>
         </div>
+      </div>
 
-    </main>
-
-
-
-
-
-
+      <div class="icons">
+          <div class="icon p-20">
+              <i class="fas fa-cat" style="color:#333"></i>
+              <div class="title">Cat</div>
+          </div>
+          
+      </div>
+    
+    </div>
 
 
 
